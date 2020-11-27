@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Book Search</title>
+</head>
+<body>
+	<h1>Search Book!!</h1>
+	<p>本を以下の項目で検索できます。</p>
+	<form method="post" action="/search/db/fromId">
+		IDを入力:	
+	<input type="text" name="bookId" th:value="${bookId_value}"/>
+	<input type="submit" value="クリック">
+	</form>
+	<form method="post" action="/search/db/fromName">
+		名前を入力:	
+	<input type="text" name="bookName" th:value="${bookName_value}"/>
+	<input type="submit" value="クリック">
+	</form>
+	<form method="post" action="/search/db/fromPublicationYear">
+		出版日を入力:	
+	<input type="text" name="bookPublicationYear" th:value="${bookPublicationYear_value}"/>
+	<input type="submit" value="クリック">
+	</form>	
+	
+</body>
+</html>
