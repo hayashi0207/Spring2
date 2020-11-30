@@ -56,7 +56,7 @@
 			</table>
 			<ul>
 				<li th:each="error:${#fields.detailedErrors()}">
-				<span th:text="${error.message}">Error message</span>
+				<span th:text="${error.message}"></span>
 				</li>
 			</ul>
 			<button class="btn btn-primary" type="submit">ユーザ登録
