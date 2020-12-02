@@ -1,5 +1,6 @@
 package com.example.demo.login.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,9 +11,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.login.domain.model.GroupOrder;
 import com.example.demo.login.domain.model.SignupForm;
+import com.example.demo.login.domain.service.UserService;
 
 @Controller
 public class SignupController {
+	
+	@Autowired
+	private UserService userService;
 	
 	@GetMapping("/signup")
 	public String getSignUp(@ModelAttribute SignupForm form, Model model) {
@@ -25,6 +30,15 @@ public class SignupController {
 			return getSignUp(form,model);
 		}
 		System.out.println(form);
+		
+		boolean result = userService.insert(form);
+		if(result==true) {
+			System.out.println("insert成功");
+		}else {
+			System.out.println("insert失敗");
+		}
 		return "redirect:/login";
+		
+		
 	}
 }
