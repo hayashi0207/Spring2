@@ -14,7 +14,7 @@ import com.example.demo.login.domain.model.SignupForm;
 import com.example.demo.login.domain.model.User;
 import com.example.demo.login.domain.repository.IUserDao;
 
-@Repository
+@Repository("UserDaoJdbcImpl")
 public class UserDaoJdbcImpl implements IUserDao{
 	@Autowired
 	JdbcTemplate jdbc;
