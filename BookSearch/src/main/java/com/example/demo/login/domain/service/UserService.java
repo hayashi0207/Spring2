@@ -13,7 +13,7 @@ import com.example.demo.login.domain.repository.IUserDao;
 @Service
 public class UserService implements IUserService{
 	@Autowired
-	@Qualifier("UserDaoJdbcImpl2")
+	@Qualifier("UserDaoJdbcImpl3")
 	IUserDao dao;
 	
 	@Override
