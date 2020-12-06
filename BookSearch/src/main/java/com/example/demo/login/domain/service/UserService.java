@@ -1,9 +1,14 @@
 package com.example.demo.login.domain.service;
-
+import java.io.IOException;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.login.domain.model.SignupForm;
@@ -62,9 +67,16 @@ public class UserService implements IUserService{
 	}
 
 	@Override
-	public void userCsvOut() {
-		// TODO 自動生成されたメソッド・スタブ
+	public void userCsvOut() throws DataAccessException{
+		dao.userCsvOut();
+	}
+	public byte[] getFile(String fileName) throws IOException{
+		FileSystem fs = FileSystems.getDefault();
+		Path p = fs.getPath(fileName);
 		
+		byte[] bytes = Files.readAllBytes(p);
+		
+		return bytes;
 	}
 	
 }
